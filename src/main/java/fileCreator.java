@@ -11,7 +11,10 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,9 +44,32 @@ public class fileCreator extends HttpServlet {
         try {
             Part part = request.getPart("choosenFile");
             
+            BufferedReader buf= new BufferedReader(new InputStreamReader(part.getInputStream()));
+            ArrayList<String> convertedBuffer= convertBufferedReaderToArrayList(buf);
         } 
         catch (IOException e) {out.print("Error occured while trying to read file \n");} 
         catch (ServletException ex) {out.print("Error occured while trying to get file \n");}
     }
+    
+    private ArrayList<ArrayList<String>> sortToArray(ArrayList<String> convertedBuffer){
+        ArrayList<ArrayList<String>> sort= new ArrayList<>();
+        int count=0;
+        int loop=0;
+        String line; 
+        
+        while(loop<=convertedBuffer.size()-1){
+            
+        }
+        return count;
+    }
+
+    private ArrayList<String> convertBufferedReaderToArrayList(BufferedReader reader) throws IOException{
+        String line;
+        ArrayList<String> lines=new ArrayList<>();
+            while ( (line=reader.readLine())!=null){
+                lines.add(line);
+            }
+            return lines;
+        }
     
 }
