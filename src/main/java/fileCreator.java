@@ -43,7 +43,12 @@ public class fileCreator extends HttpServlet {
         try {
             processFile(request, response);
         } catch (IOException ex) {
-            System.out.println("Error with getting the response");
+            try {
+                response.getWriter().print("Error with getting the response");
+                System.out.println("Error with getting the response");
+            } catch (IOException ex1) {
+                System.out.println("Error with getting response");
+            }
         }
     }
 
@@ -65,7 +70,7 @@ public class fileCreator extends HttpServlet {
                 soutMap(map, response);
                 
                 if (createFiles(map)){
-                    writeToFiles(map,columnHeadings);
+                    out.print("\n"+writeToFiles(map,columnHeadings));
                 }
                 
             }else{out.print("positionOfColumn is "+positionOfColumn);}
