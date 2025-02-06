@@ -58,13 +58,14 @@ public class fileCreator extends HttpServlet {
             ArrayList<String> convertedBuffer= convertBufferedReaderToArrayList(buf);
             
             //Create a Map with all the keys being the different types of checks
-            getPositionOfSearch(convertedBuffer.get(lineNumOfColumn-1));
+            String columnHeadings=convertedBuffer.get(lineNumOfColumn-1);
+            getPositionOfSearch(columnHeadings);
             if(positionOfColumn!=-1){
                 Map<String, ArrayList<String>> map=createMap(convertedBuffer);
                 soutMap(map, response);
                 
                 if (createFiles(map)){
-                    writeToFiles(map);
+                    writeToFiles(map,columnHeadings);
                 }
                 
             }else{out.print("positionOfColumn is "+positionOfColumn);}
@@ -146,7 +147,7 @@ public class fileCreator extends HttpServlet {
         return true;
     }
     
-    private String writeToFiles(Map<String,ArrayList<String>> map){
+    private String writeToFiles(Map<String,ArrayList<String>> map,String columnHeadings){
     List<String> keys = new ArrayList<String>(map.keySet());
         
         for (String key : keys) {
@@ -155,6 +156,7 @@ public class fileCreator extends HttpServlet {
                 myFile = new FileWriter(filePath+key+fileExtention);
                 ArrayList<String> values=map.get(key);
                 
+                myFile.write(columnHeadings+"\n");
                 for (String value : values) {
                     myFile.write(value+"\n");
                 }
