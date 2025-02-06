@@ -7,11 +7,11 @@
     <body>
         <form class="steps">
             <label>On google sheets export the data as comma separated</label>
+            
+            <label>Check global Values in "fileCreator.java" to insure all your looking for is there</label>
         </form>
         
         <form class="File_Panel" method="post" action="fileCreator" enctype="multipart/form-data">
-            <label for="delimiter" >How are the files values separated:</label>
-            <input type="text" name="delimiter" id="delimiter" value=",">
             <input type="file" name="choosenFile">
             <button type="submit">Submit</button>
         </form>
