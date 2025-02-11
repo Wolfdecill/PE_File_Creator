@@ -91,4 +91,8 @@ body{
         padding: 5px 10px;
         text-align: center;
         font-size: 1.1em; 
+        transition-duration: 0.5s;
+    }
+    .file_Panel button:hover{
+        background-color: darkgreen;
     }
