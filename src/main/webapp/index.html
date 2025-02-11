@@ -12,7 +12,13 @@
         </form>
         
         <form class="File_Panel" method="post" action="fileCreator" enctype="multipart/form-data">
-            <input type="file" name="choosenFile">
+            
+            <label for="delimiter">Delimiter (don't use | -> pipe character):</label>
+            <input type="text" id="delimiter" name="delimiter" value=",">
+            <br><br>
+            <label for="files">Select a file:</label>
+            <input type="file" id="files" name="choosenFile">
+            <br><br>
             <button type="submit">Submit</button>
         </form>
     </body>

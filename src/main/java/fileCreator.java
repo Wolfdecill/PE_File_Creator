@@ -55,6 +55,8 @@ public class fileCreator extends HttpServlet {
     private void processFile(HttpServletRequest request, HttpServletResponse response) throws IOException{
         PrintWriter out = response.getWriter();
         try {
+            delimiter=request.getParameter("delimiter");
+
             out.print("Delimiter used: "+delimiter+"\n");
             Part part = request.getPart("choosenFile");
             
