@@ -3,23 +3,32 @@
     <head>
         <title>Start Page</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <link rel="stylesheet" href="CSS/indexCSS.css" type="text/css">
+        
     </head>
     <body>
+    <div class="contain">
         <form class="steps">
-            <label>On google sheets export the data as comma separated</label>
-            
-            <label>Check global Values in "fileCreator.java" to insure all your looking for is there</label>
+            <label class="header">Step's for use</label>
+
+            <div class="points">
+                <label>On google sheets export the data as comma separated</label>
+
+                <label>Check the global Values in "fileCreator.java" to insure all your values are correct</label>
+            </div>
         </form>
-        
-        <form class="File_Panel" method="post" action="fileCreator" enctype="multipart/form-data">
+        <form class="file_Panel" method="post" action="fileCreator" enctype="multipart/form-data">
             
-            <label for="delimiter">Delimiter (don't use | -> pipe character):</label>
+            <label for="delimiter">Delimiter:</label>
             <input type="text" id="delimiter" name="delimiter" value=",">
+            <label class="small">Add \\ before pipe character</label>
             <br><br>
             <label for="files">Select a file:</label>
             <input type="file" id="files" name="choosenFile">
             <br><br>
             <button type="submit">Submit</button>
         </form>
+    </div>
     </body>
 </html>
